@@ -1,0 +1,18 @@
+<component name="ImageButton" extends="Group">
+    <script type="text/brightscript" uri="ImageButton.bs" />
+
+    <interface>
+        <field id="text" type="string" onChange="onTextChanged" />
+        <field id="iconUri" type="string" onChange="onIconChanged" />
+        <field id="identifier" type="string" />
+    </interface>
+
+    <children>
+        <rectangle id="background" width="150" height="64" color="0xFCFCFD">
+            <layoutgroup id="content" itemSpacings="[14]" layoutDirection="horiz" horizAlignment="center" vertAlignment="center">
+                    <poster id="icon" width="24" height="24" />
+                    <label id="label" />
+            </layoutgroup>
+        </rectangle>
+    </children> 
+</component>

@@ -1,0 +1,18 @@
+sub init()
+    m.icon = m.top.findNode("icon")
+    m.label = m.top.findNode("label")
+
+    m.label.color = "0x6C717F"
+    m.label.font.size = 24
+end sub
+
+sub onTextChanged(event as Object)
+    data = event.getData()
+    m.label.text = data
+end sub
+
+sub onIconChanged(event as Object)
+    data = event.getData()
+    print data
+    m.icon.uri = data
+end sub

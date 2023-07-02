@@ -12,5 +12,6 @@
         <rectangle id="delimiter" width="3" height="1080" color="0xD1CBCB" translation="[296, 0]" />
         <poster id="logo" width="151" height="76" uri="pkg:/images/agile_logo.png"
                 translation="[72,24]"/>
+        <mainMenu translation = "[82,200]" />
     </children> 
 </component>
