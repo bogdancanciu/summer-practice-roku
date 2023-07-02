@@ -1,0 +1,7 @@
+sub init()
+    m.navigationService = new NavigationService()
+end sub
+
+function onKeyEvent(key as String, press as Boolean) as Boolean
+    return true
+end function

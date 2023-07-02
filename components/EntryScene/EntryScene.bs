@@ -1,0 +1,4 @@
+function init()
+    m.navigationService = new NavigationService()
+    m.navigationService.navigate("MainScreen", m.top)
+end function

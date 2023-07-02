@@ -1,0 +1,26 @@
+class NavigationService
+    sub new()
+    end sub
+
+    function navigate(screenName as String, currentScreen as Object)
+        childScreen = m.createChildNode(screenName)
+        currentScreen.appendChild(childScreen)
+
+        childScreen.setFocus(true)
+    end function
+
+    sub navigateBack(currentScreen as Object)
+        parent = currentScreen.getParent()
+
+        if parent <> invalid
+            parent.removeChild(currentScreen)
+            parent.setFocus(true)
+        end if
+    end sub
+
+    private function createChildNode(screenName as String) as Object
+        screen = CreateObject("roSGNode", screenName)
+
+        return screen
+    end function
+end class
