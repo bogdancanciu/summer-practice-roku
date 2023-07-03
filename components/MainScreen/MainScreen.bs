@@ -1,5 +1,6 @@
 sub init()
     m.menu = m.top.findNode("menu")
+    m.freaksContainer = m.top.findNode("freaksContainer")
     m.navigationService = new NavigationService()
     m.menu.observeField("itemFocused", "onItemFocusedChanged")
     m.menu.itemFocused = 0
@@ -20,5 +21,7 @@ sub getFreaksList()
 end sub
 
 sub onResponseReady(event as Object)
-    print event.getData()
+    responseContent = event.getData()
+
+    m.freaksContainer.content = responseContent
 end sub

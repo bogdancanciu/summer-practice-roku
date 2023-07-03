@@ -1,6 +1,6 @@
 {
     "deploy": true,
-    "host": "192.168.1.190",
+    "host": "192.168.10.224",
     "username": "rokudev",
     "password": "rokudev"
 }

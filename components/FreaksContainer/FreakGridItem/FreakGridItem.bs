@@ -1,0 +1,11 @@
+sub init()
+    m.poster = m.top.findNode("poster")
+    m.title = m.top.findNode("title")
+end sub
+
+sub onContentChanged(event as Object)
+    content = event.getData()
+
+    m.title.text = content.title
+    m.poster.uri = content.imageUri
+end sub

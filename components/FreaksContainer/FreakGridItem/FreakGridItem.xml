@@ -1,0 +1,13 @@
+<component name="FreakGridItem" extends="Group">
+    <script type="text/brightscript" uri="FreakGridItem.bs" />
+    <interface>
+        <field id="itemContent" type="node" onChange="onContentChanged"/>
+    </interface>
+
+    <children>
+        <layoutgroup itemSpacings="[9]">
+            <poster id="poster" width="150" height="150" />
+            <label id="title" horizAlign="center" width="150" height="150" />
+        </layoutgroup>
+    </children>
+</component>

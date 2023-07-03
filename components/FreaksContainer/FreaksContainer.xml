@@ -1,0 +1,16 @@
+<component name="FreaksContainer" extends="Group" initialFocus="navigation">
+    <script type="text/brightscript" uri="FreaksContainer.bs" />
+
+    <interface>
+        <field id="content" type="array" onChange="onContentChanged" />
+    </interface>
+
+    <children>
+        <markupGrid id="navigation"
+            numRows="3"
+            numColumns="5"
+            itemSize="[ 300, 300 ]"
+            itemSpacing="[ 30, 51 ]"
+            itemComponentName="FreakGridItem"/>
+    </children> 
+</component>
