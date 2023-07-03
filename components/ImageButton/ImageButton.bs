@@ -1,9 +1,30 @@
 sub init()
     m.icon = m.top.findNode("icon")
     m.label = m.top.findNode("label")
+    m.background = m.top.findNode("background")
 
-    m.label.color = "0x6C717F"
     m.label.font.size = 24
+    setUnfocusedState()
+end sub
+
+sub setButtonFocus(focus as Boolean)
+    if focus = true
+        setFocusedState()
+    else
+        setUnfocusedState()
+    end if
+end sub
+
+sub setFocusedState()
+    m.label.color = "0xFCFCFD"
+    m.icon.blendColor = "0xFCFCFD"
+    m.background.color = "0x4480F1"
+end sub
+
+sub setUnfocusedState()
+    m.label.color = "0x6C717F"
+    m.icon.blendColor = "0x6C717F"
+    m.background.color = "0xFCFCFD"
 end sub
 
 sub onTextChanged(event as Object)
@@ -13,6 +34,5 @@ end sub
 
 sub onIconChanged(event as Object)
     data = event.getData()
-    print data
     m.icon.uri = data
 end sub

@@ -1,8 +1,8 @@
-<component name="MainMenu" extends="Group">
+<component name="MainMenu" extends="Group" initialFocus="navigation">
     <script type="text/brightscript" uri="MainMenu.bs" />
 
     <interface>
-        <field id="itemFocused" type="string"/>
+        <field id="itemFocused" type="int" alwaysNotify="true" onChange="onItemFocusedChanged"/>
     </interface>
 
     <children>
