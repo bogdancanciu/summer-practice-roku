@@ -1,0 +1,8 @@
+<component name="GetFreaksTask" extends="Task">
+    <script uri="GetFreaksTask.bs" type="text/brightscript" />
+    <script uri="pkg:/source/services/RequestService.bs" type="text/brightscript" />
+
+    <interface>
+        <field id="responseContent" type="array" />
+    </interface>
+</component>

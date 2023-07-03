@@ -1,0 +1,15 @@
+function init()
+    m.top.functionName = "execute"
+    m.requestService = new RequestService("https://summer-practice-api-476aeaf072ec.herokuapp.com/v1/users")
+end function
+
+function execute()
+    response = m.requestService.getContent()
+    freakList = []
+    data = response.data
+    for each freak in data
+        freakList.push(freak.attributes)
+    end for
+
+    m.top.responseContent = freakList
+end function

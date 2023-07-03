@@ -1,3 +1,24 @@
 sub init()
+    m.menu = m.top.findNode("menu")
     m.navigationService = new NavigationService()
+    m.menu.observeField("itemFocused", "onItemFocusedChanged")
+    m.menu.itemFocused = 0
+
+    getFreaksList()
+end sub
+
+sub onItemFocusedChanged(event as Object)
+    itemFocused = event.getData()
+    buttonIdentifier = m.menu.findNode("navigation").getChild(itemFocused).identifier
+end sub
+
+sub getFreaksList()
+    m.getFreaksTask = CreateObject("roSGNode","GetFreaksTask")
+    m.getFreaksTask.observeField("responseContent", "onResponseReady")
+
+    m.getFreaksTask.control = "RUN"
+end sub
+
+sub onResponseReady(event as Object)
+    print event.getData()
 end sub
