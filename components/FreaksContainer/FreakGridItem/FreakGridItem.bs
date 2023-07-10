@@ -1,6 +1,8 @@
 sub init()
     m.poster = m.top.findNode("poster")
     m.title = m.top.findNode("title")
+
+    setTheme()
 end sub
 
 sub onContentChanged(event as Object)
@@ -8,4 +10,8 @@ sub onContentChanged(event as Object)
 
     m.title.text = content.title
     m.poster.uri = content.imageUri
+end sub
+
+sub setTheme()
+    m.title.font.size = 24
 end sub

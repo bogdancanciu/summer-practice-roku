@@ -6,7 +6,7 @@
     </interface>
 
     <children>
-        <layoutGroup id="navigation" itemSpacings="[34]">
+        <layoutGroup id="navigation" itemSpacings="[88]">
             <imageButton identifier="homeButton" iconUri="pkg:/images/home.png" text="Home" />
             <imageButton identifier="freaksButton" iconUri="pkg:/images/freaks.png" text="Freaks" />
             <imageButton identifier="profileButton" iconUri="pkg:/images/profile.png" text="Profile" />

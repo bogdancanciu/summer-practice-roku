@@ -7,10 +7,10 @@
 
     <children>
         <markupGrid id="navigation"
-            numRows="3"
+            numRows="4"
             numColumns="5"
-            itemSize="[ 300, 300 ]"
-            itemSpacing="[ 30, 51 ]"
+            itemSize="[ 162, 162 ]"
+            itemSpacing="[ 88, 80 ]"
             itemComponentName="FreakGridItem"/>
     </children> 
 </component>
