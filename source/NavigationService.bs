@@ -2,8 +2,11 @@ class NavigationService
     sub new()
     end sub
 
-    function navigate(screenName as String, currentScreen as Object)
+    function navigate(screenName as String, currentScreen as Object, args = invalid as Object)
         childScreen = m.createChildNode(screenName)
+
+        if args <> invalid then childScreen.content = args
+
         currentScreen.appendChild(childScreen)
 
         childScreen.setFocus(true)
@@ -14,7 +17,7 @@ class NavigationService
 
         if parent <> invalid
             parent.removeChild(currentScreen)
-            parent.setFocus(true)
+            parent.lastFocusedChild.setFocus(true)
         end if
     end sub
 

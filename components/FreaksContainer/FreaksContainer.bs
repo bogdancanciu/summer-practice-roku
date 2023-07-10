@@ -1,0 +1,47 @@
+sub init()
+    m.name = m.top.findNode("name")
+    m.email = m.top.findNode("email")
+    m.details = m.top.findNode("details")
+    m.navigation = m.top.findNode("navigation")
+
+    m.navigation.observeField("itemFocused", "onItemFocusedChanged")
+    m.navigation.observeField("itemSelected", "onItemSelectedChanged")
+
+    m.navigationService = new NavigationService()
+end sub
+
+sub onContentChanged(event as Object)
+    content = event.getData()
+
+    m.navigation.content = CreateObject("roSGNode", "ContentNode")
+
+    for each item in content
+        freak = createObject("roSGNode", "FreakContentNode")
+        freak.title = item.first_name
+        freak.lastName = item.last_name
+        freak.email = item.email
+        freak.imageUri = item.avatar_url
+
+        m.navigation.content.appendChild(freak)
+    end for
+end sub
+
+sub setDetailsVisibility(visibleState as Boolean)
+    m.details.visible = visibleState
+end sub
+
+sub onItemFocusedChanged(event as Object)
+    itemIndex = event.getData()
+    gridItem = m.navigation.content.getChild(itemIndex)
+
+    m.name.text = substitute("{0} {1}", gridItem.title, gridItem.lastName)
+    m.email.text = gridItem.email
+end sub
+
+sub onItemSelectedChanged(event as Object)
+    itemIndex = event.getData()
+    gridItem = m.navigation.content.getChild(itemIndex)
+
+    m.top.lastFocusedChild = m.top.focusedChild
+    m.navigationService.navigate("NoticeScreen", m.top, gridItem)
+end sub

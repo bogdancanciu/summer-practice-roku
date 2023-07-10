@@ -1,0 +1,32 @@
+<component name="FreaksContainer" extends="Group" >
+    <script type="text/brightscript" uri="FreaksContainer.bs" />
+    <script type="text/brightscript" uri="pkg:/source/NavigationService.bs" />
+
+    <interface>
+        <field id="lastFocusedChild" type="node" />
+        <field id="content" type="array" onChange="onContentChanged" />
+        <function name="setDetailsVisibility"/>
+    </interface>
+
+    <children>
+        <layoutGroup id="details" itemSpacings="[14]" translation="[600, -70]" horizAlignment="center" vertAlignment="center" visible="false">
+            <layoutgroup id="nameContent" itemSpacings="[14]" layoutDirection="horiz" horizAlignment="center" vertAlignment="center">
+                <label text="Name:" color="0x6C717F"/>
+                <label id="name" color="0x6C717F"/>
+            </layoutgroup>
+            <layoutgroup id="emailContent" itemSpacings="[14]" layoutDirection="horiz" horizAlignment="center" vertAlignment="center">
+                <label text="Email:" color="0x6C717F"/>
+                <label id="email" color="0x6C717F"/>
+            </layoutgroup>
+        </layoutGroup>
+        <markupGrid id="navigation"
+            numRows="4"
+            numColumns="5"
+            itemSize="[ 196, 220 ]"
+            itemSpacing="[ 68, 80 ]"
+            itemComponentName="FreakGridItem"
+            imageWellBitmapUri=""
+            drawFocusFeedback="false"
+            vertFocusAnimationStyle="fixedFocus" />
+    </children> 
+</component>

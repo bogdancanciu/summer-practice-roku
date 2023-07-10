@@ -1,0 +1,42 @@
+sub init()
+    m.poster = m.top.findNode("poster")
+    m.title = m.top.findNode("title")
+    m.INITAL_SCALE = 1
+    m.SCALE_VALUE = 0.2
+
+    setTheme()
+end sub
+
+sub onContentChanged(event as Object)
+    content = event.getData()
+
+    m.title.text = content.title
+    m.poster.uri = content.imageUri
+end sub
+
+sub onFocusChanged(event as Object)
+    if m.top.gridHasFocus
+        onItemFocused()
+    else
+        onItemUnfocused()
+    end if
+end sub
+
+sub onItemFocused()
+    scalePercent = getScalePercent()
+    m.poster.scale = [scalePercent, scalePercent]
+end sub
+
+sub onItemUnfocused()
+    scalePercent = m.INITAL_SCALE
+    m.poster.scale = [scalePercent, scalePercent]
+end sub
+
+
+function getScalePercent() as Float
+    return m.INITAL_SCALE + (m.top.focusPercent * m.SCALE_VALUE)
+end function
+
+sub setTheme()
+    m.title.font.size = 24
+end sub

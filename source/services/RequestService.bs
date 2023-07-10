@@ -1,0 +1,14 @@
+class RequestService
+    private roUrlTransfer as Object
+
+    sub new(url as String)
+        m.roUrlTransfer = CreateObject("roUrlTransfer")
+        m.roUrlTransfer.setUrl(url)
+        m.roUrlTransfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
+        m.roUrlTransfer.InitClientCertificates()
+    end sub
+
+    function getContent() as Object
+        return Parsejson(m.roUrlTransfer.getToString())
+    end function
+end class

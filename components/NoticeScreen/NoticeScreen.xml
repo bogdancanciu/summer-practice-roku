@@ -1,0 +1,18 @@
+<component name="NoticeScreen" extends="Group">
+    <script type="text/brightscript" uri="NoticeScreen.bs" />
+    <script type="text/brightscript" uri="pkg:/source/NavigationService.bs" />
+
+    <interface>
+        <field id="content" type="node" onChange="onContentChanged"/>
+    </interface>
+
+    <children>
+        <rectangle id="background" width="1920" height="1080" color="0x000000e6" translation="[-480, -144]">
+            <layoutgroup translation="[960, 499]" itemSpacings="[27, 36]" vertAlignment="center" horizAlignment="center">
+                <poster id="poster" width="162" height="162" />
+                <label id="title" text="Title" width="1566" lineSpacing="0" maxLines="2" wrap="true" horizAlign="center" />
+                <label id="notice" text="Title" width="1566" lineSpacing="0" maxLines="12" wrap="true" horizAlign="center" />
+            </layoutgroup>
+        </rectangle>
+    </children>
+</component>

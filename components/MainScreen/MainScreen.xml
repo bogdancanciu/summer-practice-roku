@@ -1,4 +1,4 @@
-<component name="MainScreen" extends="Group">
+<component name="MainScreen" extends="Group" initialFocus="menu">
     <script type="text/brightscript" uri="MainScreen.bs" />
     <script type="text/brightscript" uri="pkg:/source/NavigationService.bs" />
 
@@ -12,5 +12,9 @@
         <rectangle id="delimiter" width="3" height="1080" color="0xD1CBCB" translation="[296, 0]" />
         <poster id="logo" width="151" height="76" uri="pkg:/images/agile_logo.png"
                 translation="[72,24]"/>
-    </children> 
+        <mainMenu id="menu" translation = "[73,144]" />
+        <HomeContainer id="homeContainer" translation = "[1109, 540]" visible="false"/>
+        <FreaksContainer id="freaksContainer" translation="[480, 144]" visible="false"/>
+        <ProfileContainer id="profileContainer" translation = "[860, 480]" visible="false"/>
+    </children>
 </component>

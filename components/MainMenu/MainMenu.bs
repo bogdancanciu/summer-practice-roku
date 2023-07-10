@@ -1,0 +1,38 @@
+sub init()
+    m.navigation = m.top.findNode("navigation")
+end sub
+
+sub onItemFocusedChanged(event as Object)
+    itemFocused = event.getData()
+    focusButton(itemFocused)
+end sub
+
+sub focusButton(index as Integer)
+    m.navigation.getChild(index).callFunc("setButtonFocus",true)
+end sub
+
+sub unfocusButton(index as Integer)
+    m.navigation.getChild(index).callFunc("setButtonFocus",false)
+end sub
+
+function onKeyEvent(key as String, press as Boolean) as Boolean
+    handled = false
+
+    if press
+        if key="down"
+            if m.top.itemFocused < 2
+                unfocusButton(m.top.itemFocused)
+                m.top.itemFocused++
+                handled = true
+            end if
+        else if key="up"
+            if m.top.itemFocused > 0
+                unfocusButton(m.top.itemFocused)
+                m.top.itemFocused--
+                handled = true
+            end if
+        end if
+    end if
+
+    return handled
+end function
