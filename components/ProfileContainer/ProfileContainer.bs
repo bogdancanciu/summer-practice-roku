@@ -1,0 +1,5 @@
+sub init()
+    m.title = m.top.findNode("title")
+
+    m.title.font.size = 60
+end sub

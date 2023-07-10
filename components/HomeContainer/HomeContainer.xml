@@ -1,0 +1,10 @@
+<component name="HomeContainer" extends="Group">
+    <script type="text/brightscript" uri="HomeContainer.bs" />
+
+    <children>
+        <layoutGroup id="navigation" itemSpacings="[30]" horizAlignment="center" vertAlignment="center">
+            <poster id="logo" width="600" height="600" uri="pkg:/images/af_poster.png" />
+            <label text="Summer Practice Home Section" color="0x6C717F" width="600" horizAlign="center" />
+        </layoutGroup>
+    </children> 
+</component>

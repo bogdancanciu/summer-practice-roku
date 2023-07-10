@@ -1,7 +1,9 @@
 sub init()
     m.menu = m.top.findNode("menu")
+    m.homeContainer = m.top.findNode("homeContainer")
     m.freaksContainer = m.top.findNode("freaksContainer")
-    m.navigationService = new NavigationService()
+    m.profileContainer = m.top.findNode("profileContainer")
+
     m.menu.observeField("itemFocused", "onItemFocusedChanged")
     m.menu.itemFocused = 0
 end sub
@@ -9,13 +11,33 @@ end sub
 sub onItemFocusedChanged(event as Object)
     itemFocused = event.getData()
     buttonIdentifier = m.menu.findNode("navigation").getChild(itemFocused).identifier
-    
-    if buttonIdentifier = "freaksButton"
+
+    if buttonIdentifier = "homeButton"
+        showHomeContainer()
+    else if buttonIdentifier = "freaksButton"
         getFreaksList()
-        m.freaksContainer.visible = true
-    else
-        m.freaksContainer.visible = false
+        showFreaksContainer()
+    else if buttonIdentifier = "profileButton"
+        showProfileContainer()
     end if
+end sub
+
+sub showHomeContainer()
+    m.homeContainer.visible = true
+    m.freaksContainer.visible = false
+    m.profileContainer.visible = false
+end sub
+
+sub showFreaksContainer()
+    m.homeContainer.visible = false
+    m.freaksContainer.visible = true
+    m.profileContainer.visible = false
+end sub
+
+sub showProfileContainer()
+    m.homeContainer.visible = false
+    m.freaksContainer.visible = false
+    m.profileContainer.visible = true
 end sub
 
 sub getFreaksList()

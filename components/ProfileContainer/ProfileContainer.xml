@@ -1,0 +1,7 @@
+<component name="ProfileContainer" extends="Group">
+    <script type="text/brightscript" uri="ProfileContainer.bs" />
+
+    <children>
+        <label id="title" text="Coming soon..." color="0x6C717F" width="600" horizAlign="center" />
+    </children> 
+</component>
