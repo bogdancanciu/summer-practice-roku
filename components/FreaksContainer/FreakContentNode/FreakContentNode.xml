@@ -1,6 +1,8 @@
 <component name="FreakContentNode" extends="ContentNode">
     <interface>
         <field id="title" type="string" />
+        <field id="email" type="string" />
         <field id="imageUri" type="uri" />
+        <field id="lastName" type="string" />
     </interface>
 </component>

@@ -16,7 +16,6 @@ sub onItemFocusedChanged(event as Object)
         showHomeContainer()
     else if buttonIdentifier = "freaksButton"
         getFreaksList()
-        showFreaksContainer()
     else if buttonIdentifier = "profileButton"
         showProfileContainer()
     end if
@@ -51,6 +50,7 @@ sub onResponseReady(event as Object)
     responseContent = event.getData()
 
     m.freaksContainer.content = responseContent
+    showFreaksContainer()
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -58,9 +58,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         freaksGrid = m.freaksContainer.findNode("navigation")
         if key="right" and m.freaksContainer.visible = true
             freaksGrid.setFocus(true)
+            m.freaksContainer.callFunc("setDetailsVisibility", true)
         else if key="left" and freaksGrid.hasFocus()
             mainMenu = m.menu.findNode("navigation")
             mainMenu.setFocus(true)
+            m.freaksContainer.callFunc("setDetailsVisibility", false)
         end if
     end if
 

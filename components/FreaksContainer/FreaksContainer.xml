@@ -3,9 +3,20 @@
 
     <interface>
         <field id="content" type="array" onChange="onContentChanged" />
+        <function name="setDetailsVisibility"/>
     </interface>
 
     <children>
+        <layoutGroup id="details" itemSpacings="[14]" translation="[600, -70]" horizAlignment="center" vertAlignment="center" visible="false">
+            <layoutgroup id="nameContent" itemSpacings="[14]" layoutDirection="horiz" horizAlignment="center" vertAlignment="center">
+                <label text="Name:" color="0x6C717F"/>
+                <label id="name" color="0x6C717F"/>
+            </layoutgroup>
+            <layoutgroup id="emailContent" itemSpacings="[14]" layoutDirection="horiz" horizAlignment="center" vertAlignment="center">
+                <label text="Email:" color="0x6C717F"/>
+                <label id="email" color="0x6C717F"/>
+            </layoutgroup>
+        </layoutGroup>
         <markupGrid id="navigation"
             numRows="4"
             numColumns="5"
