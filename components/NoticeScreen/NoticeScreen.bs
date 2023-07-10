@@ -1,0 +1,29 @@
+sub init()
+    m.navigationService = new NavigationService()
+    m.title = m.top.findNode("title")
+    m.notice = m.top.findNode("notice")
+    m.poster = m.top.findNode("poster")
+
+    m.title.font.size = 60
+    m.notice.font.size = 32
+end sub
+
+sub onContentChanged(event as Object)
+    content = event.getData()
+
+    m.poster.uri = content.imageUri
+    m.title.text = substitute("{0}'s profile", content.title)
+    m.notice.text = substitute("{0}'s available at {1}", content.title, content.email)
+end sub
+
+function onKeyEvent(key as String, press as Boolean) as Boolean
+    if press
+        if key="back"
+            m.navigationService.navigateBack(m.top)
+        end if
+    end if
+
+    return true
+end function
+
+

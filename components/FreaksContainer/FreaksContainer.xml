@@ -1,7 +1,9 @@
 <component name="FreaksContainer" extends="Group" >
     <script type="text/brightscript" uri="FreaksContainer.bs" />
+    <script type="text/brightscript" uri="pkg:/source/NavigationService.bs" />
 
     <interface>
+        <field id="lastFocusedChild" type="node" />
         <field id="content" type="array" onChange="onContentChanged" />
         <function name="setDetailsVisibility"/>
     </interface>
