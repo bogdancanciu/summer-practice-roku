@@ -7,6 +7,9 @@ sub init()
     m.navigation.observeField("itemFocused", "onItemFocusedChanged")
     m.navigation.observeField("itemSelected", "onItemSelectedChanged")
 
+    m.DESIRED_BUG_INDEX = 2
+    m.DESIRED_ERROR_INDEX = 4
+
     m.navigationService = new NavigationService()
 end sub
 
@@ -34,14 +37,39 @@ sub onItemFocusedChanged(event as Object)
     itemIndex = event.getData()
     gridItem = m.navigation.content.getChild(itemIndex)
 
-    m.name.text = substitute("{0} {1}", gridItem.title, gridItem.lastName)
-    m.email.text = gridItem.email
+    if itemIndex = m.DESIRED_BUG_INDEX
+        displayRandomDetails()
+    else
+        m.name.text = substitute("{0} {1}", gridItem.title, gridItem.lastName)
+        m.email.text = gridItem.email
+    end if
+end sub
+
+sub displayRandomDetails()
+    potentialNames = ["James", "Oliver", "Jack", "Thomas", "Roby", "Liam", "Andrew",
+                      "Alexander", "John", "Armand", "Vasile", "Abba", "Dan", "Matrick",
+                    ]
+    itemsCount = potentialNames.Count() - 1
+    randomIndex = rnd(itemsCount)
+
+    chosenName = potentialNames[randomIndex]
+
+    m.name.text = substitute("{0} {1}", chosenName, "Freak")
+    m.email.text = substitute("{0}.freak@agilefreaks.com", lcase(chosenName))  
 end sub
 
 sub onItemSelectedChanged(event as Object)
     itemIndex = event.getData()
     gridItem = m.navigation.content.getChild(itemIndex)
 
-    m.top.lastFocusedChild = m.top.focusedChild
-    m.navigationService.navigate("NoticeScreen", m.top, gridItem)
+    if itemIndex = m.DESIRED_ERROR_INDEX
+        throwError()
+    else
+        m.top.lastFocusedChild = m.top.focusedChild
+        m.navigationService.navigate("NoticeScreen", m.top, gridItem)
+    end if
+end sub
+
+sub throwError()
+    m.top.nonExistentFunction()
 end sub
