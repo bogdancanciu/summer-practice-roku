@@ -14,7 +14,7 @@
                 translation="[72,24]"/>
         <mainMenu id="menu" translation = "[73,144]" />
         <HomeContainer id="homeContainer" translation = "[1109, 540]" visible="false"/>
-        <FreaksContainer id="freaksContainer" translation="[558, 144]" visible="false"/>
+        <FreaksContainer id="freaksContainer" translation="[480, 144]" visible="false"/>
         <ProfileContainer id="profileContainer" translation = "[860, 480]" visible="false"/>
     </children>
 </component>

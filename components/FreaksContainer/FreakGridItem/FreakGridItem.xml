@@ -2,12 +2,14 @@
     <script type="text/brightscript" uri="FreakGridItem.bs" />
     <interface>
         <field id="itemContent" type="node" onChange="onContentChanged"/>
+        <field id="focusPercent" type="float" onChange="onFocusChanged"/>
+        <field id="gridHasFocus" type="boolean" onChange="onFocusChanged"/>
     </interface>
 
     <children>
-        <layoutgroup itemSpacings="[9]">
-            <poster id="poster" width="150" height="150" />
-            <label id="title" horizAlign="center" width="150" height="150" color="0x6C717F" />
+        <layoutgroup itemSpacings="[9]" translation="[98, 116]" horizAlignment="center" vertAlignment="center">
+            <poster id="poster" width="162" height="162" />
+            <label id="title" color="0x6C717F" />
         </layoutgroup>
     </children>
 </component>
