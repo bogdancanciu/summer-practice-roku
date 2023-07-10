@@ -1,0 +1,16 @@
+sub init()
+    m.navigation = m.top.findNode("navigation")
+end sub
+
+sub onContentChanged(event as Object)
+    content = event.getData()
+
+    m.navigation.content = CreateObject("roSGNode", "ContentNode")
+
+    for each item in content
+        freak = createObject("roSGNode", "FreakContentNode")
+        freak.title = item.first_name
+        freak.imageUri = item.avatar_url
+        m.navigation.content.appendChild(freak)
+    end for
+end sub

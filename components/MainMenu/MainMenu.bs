@@ -16,19 +16,23 @@ sub unfocusButton(index as Integer)
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
+    handled = false
+
     if press
         if key="down"
             if m.top.itemFocused < 2
                 unfocusButton(m.top.itemFocused)
                 m.top.itemFocused++
+                handled = true
             end if
         else if key="up"
             if m.top.itemFocused > 0
                 unfocusButton(m.top.itemFocused)
                 m.top.itemFocused--
+                handled = true
             end if
         end if
     end if
 
-    return true
+    return handled
 end function

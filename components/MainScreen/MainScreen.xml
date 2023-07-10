@@ -13,6 +13,6 @@
         <poster id="logo" width="151" height="76" uri="pkg:/images/agile_logo.png"
                 translation="[72,24]"/>
         <mainMenu id="menu" translation = "[73,144]" />
-        <FreaksContainer id="freaksContainer" translation="[558, 144]" />
+        <FreaksContainer id="freaksContainer" translation="[558, 144]" visible="false"/>
     </children>
 </component>

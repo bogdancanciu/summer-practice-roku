@@ -4,13 +4,18 @@ sub init()
     m.navigationService = new NavigationService()
     m.menu.observeField("itemFocused", "onItemFocusedChanged")
     m.menu.itemFocused = 0
-
-    getFreaksList()
 end sub
 
 sub onItemFocusedChanged(event as Object)
     itemFocused = event.getData()
     buttonIdentifier = m.menu.findNode("navigation").getChild(itemFocused).identifier
+    
+    if buttonIdentifier = "freaksButton"
+        getFreaksList()
+        m.freaksContainer.visible = true
+    else
+        m.freaksContainer.visible = false
+    end if
 end sub
 
 sub getFreaksList()
@@ -25,3 +30,17 @@ sub onResponseReady(event as Object)
 
     m.freaksContainer.content = responseContent
 end sub
+
+function onKeyEvent(key as String, press as Boolean) as Boolean
+    if press
+        freaksGrid = m.freaksContainer.findNode("navigation")
+        if key="right" and m.freaksContainer.visible = true
+            freaksGrid.setFocus(true)
+        else if key="left" and freaksGrid.hasFocus()
+            mainMenu = m.menu.findNode("navigation")
+            mainMenu.setFocus(true)
+        end if
+    end if
+
+    return true
+end function
